@@ -20,21 +20,27 @@ class ShoppingCart
         $this->model = $memberModel;
     }
 
-    public function setMember($level)
+    public function setMember($acc)
     {
-        if (empty($level)) {
+        if (empty($acc) and !is_string($acc)) {
             exit;
         }
-        $this->member = $level;
+        $this->member = $acc;
     }
 
     public function setPrice($price)
     {
+        if (empty($price) and !is_numeric($price)) {
+            exit;
+        }
         $this->price = $price;
     }
 
     public function setQuantity($num)
     {
+        if (empty($num) and !is_numeric($num)) {
+            exit;
+        }
         $this->quantity = $num;
     }
 
@@ -42,6 +48,7 @@ class ShoppingCart
     {
         $level = $this->model->getMemberLevel($this->member);
         if (empty($level)) {
+            echo 'you can not buy, mother fucker';
             exit;
         }
         switch ($level) {

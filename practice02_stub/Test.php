@@ -2,6 +2,7 @@
 
 require '../vendor/autoload.php';
 require 'RefactorSubject.php';
+require_once 'Subject.php';
 
 class RefactorSubjectTest extends \PHPUnit\Framework\TestCase
 {
@@ -18,6 +19,12 @@ class RefactorSubjectTest extends \PHPUnit\Framework\TestCase
         // 宣告被測試的物件，注入stub 取代本來相依的物件
         $testMethod = new RefactorSubject($stub);
         $this->assertEquals(25, $testMethod->getSquare());
+    }
+
+    public function testGetSquareAA()
+    {
+        $t = new Subject();
+        $this->assertEquals(4, $t->getSquare(2, 2));
     }
 }
 

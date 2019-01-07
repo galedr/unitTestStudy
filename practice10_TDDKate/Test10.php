@@ -13,7 +13,7 @@ class TestShoppingCart extends \PHPUnit\Framework\TestCase
         $mock = $this->createMock(MemberModel::class);
         $mock->method('getMemberLevel')->willReturn('VIP');
         $method = new ShoppingCart($mock);
-        $method->setMember('NORMAL');
+        $method->setMember('Mia');
         $method->setPrice(500);
         $method->setQuantity(4);
 
